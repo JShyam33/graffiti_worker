@@ -1,0 +1,15 @@
+// prisma/schema.prisma
+datasource db {
+  provider = "postgres"
+  url      = env("DATABASE_URL") // Use Azure MySQL Flexible Server URL
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Image {
+  id        Int      @id @default(autoincrement())
+  sprayCommands     String   // Store image as sprayCommands
+  createdAt DateTime @default(now())
+}
